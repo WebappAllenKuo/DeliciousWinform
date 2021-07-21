@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:prodViewModel="clr-namespace:Project_CellPhone.ViewModels"
+             x:Class="Project_CellPhone.MainPage">
+    <ContentPage.BindingContext>
+        <prodViewModel:CBindingViewModel></prodViewModel:CBindingViewModel>
+    </ContentPage.BindingContext>
+    <StackLayout>
+        <StackLayout>
+             
+            <Label Text="食譜名稱" FontSize="Title" HorizontalOptions="FillAndExpand"    />
+            <Entry x:Name="mName" Text="{Binding M_Current.Receipt_name, Mode=TwoWay}"  />
+            <Label Text="簡介" FontSize="Title" HorizontalOptions="FillAndExpand"  />
+            <Editor x:Name="mNote"  Text="{Binding M_Current.Receipt_Descript, Mode=TwoWay}" />
+            <Label Text="創建日期" FontSize="Title" HorizontalOptions="FillAndExpand"  />
+            <Entry x:Name="mdate" Text="{Binding M_Current.PostTime, Mode=TwoWay}"  />
+             
+            <Label Text="" x:Name="msg" HorizontalOptions="FillAndExpand"  TextColor="Red"  />
+            <StackLayout Orientation="Horizontal" Spacing="-10"  >
+                <ImageButton  x:Name="btnLeft1"  HorizontalOptions="FillAndExpand"  Source="doubleleft.png" BackgroundColor="#00000000" Clicked="forword_Clicked" >
+                </ImageButton>
+                <ImageButton  x:Name="btnLeft2"    HorizontalOptions="FillAndExpand" Source="left.png" BackgroundColor="#00000000" Clicked="back_Clicked">
+                </ImageButton>
+                <ImageButton  x:Name="btnRight1"    HorizontalOptions="FillAndExpand" Source="right.png" BackgroundColor="#00000000" Clicked="Next_Clicked">
+                </ImageButton>
+                <ImageButton  x:Name="btnRight2"    HorizontalOptions="FillAndExpand" Source="doubleright.png" BackgroundColor="#00000000" Clicked="End_Clicked">
+                </ImageButton>
+                <ImageButton  x:Name="btnQuery"    HorizontalOptions="FillAndExpand" Source="query.png" BackgroundColor="#00000000" Clicked="btnQuery_Clicked">
+                </ImageButton>
+                
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

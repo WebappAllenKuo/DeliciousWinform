@@ -1,0 +1,2076 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DeliciousModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Accusation_Table">
+          <Key>
+            <PropertyRef Name="AccusationRightID" />
+          </Key>
+          <Property Name="AccusationRightID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MemberID" Type="int" Nullable="false" />
+          <Property Name="AccuseID" Type="int" Nullable="false" />
+          <Property Name="AccusedAvatar" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="AccusedID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="ProgressID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AccuseContent_Table">
+          <Key>
+            <PropertyRef Name="AccuseID" />
+          </Key>
+          <Property Name="AccuseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Accusation" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Admin_Table">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdminName" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="AccountName" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="AdminAuthority" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Authority_Table">
+          <Key>
+            <PropertyRef Name="AuthorityID" />
+          </Key>
+          <Property Name="AuthorityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Authority" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Collection_Table">
+          <Key>
+            <PropertyRef Name="CollectionID" />
+          </Key>
+          <Property Name="CollectionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CollectionFolderID" Type="int" Nullable="false" />
+          <Property Name="ReicipeID" Type="int" Nullable="false" />
+          <Property Name="Datetime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CollectionFolder_Table">
+          <Key>
+            <PropertyRef Name="CollectionFolderID" />
+          </Key>
+          <Property Name="CollectionFolderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CollectionFolder" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MemberID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CommentSection_Table">
+          <Key>
+            <PropertyRef Name="CommentID" />
+          </Key>
+          <Property Name="CommentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RecipeID" Type="int" Nullable="false" />
+          <Property Name="CommentFloor" Type="int" Nullable="false" />
+          <Property Name="MemberID" Type="int" Nullable="false" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Picture" Type="varbinary(max)" />
+          <Property Name="Video" Type="nvarchar" MaxLength="255" />
+          <Property Name="PostTime" Type="datetime" Nullable="false" />
+          <Property Name="DisVisible" Type="bit" Nullable="false" />
+          <Property Name="DeleteOrNot" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Feedback_Category_Table">
+          <Key>
+            <PropertyRef Name="FeedbackCategoryID" />
+          </Key>
+          <Property Name="FeedbackCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FeedbackCategory" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Feedback_Progress_Table">
+          <Key>
+            <PropertyRef Name="ProgressID" />
+          </Key>
+          <Property Name="ProgressID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProgressContent" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Feedback_Table">
+          <Key>
+            <PropertyRef Name="FeedbackID" />
+          </Key>
+          <Property Name="FeedbackID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FeedbackCategoryID" Type="int" Nullable="false" />
+          <Property Name="MemberID" Type="int" Nullable="false" />
+          <Property Name="Contents" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ProgressID" Type="int" Nullable="false" />
+          <Property Name="Comment" Type="int" />
+          <Property Name="FeedbackDate" Type="datetime" Nullable="false" />
+          <Property Name="FeedbackContent" Type="nvarchar" MaxLength="50" />
+          <Property Name="Picture" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Hashtag_Record_Table">
+          <Key>
+            <PropertyRef Name="HashTagFolderID" />
+          </Key>
+          <Property Name="HashTagFolderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HashTagID" Type="int" Nullable="false" />
+          <Property Name="RecipeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Hashtag_Table">
+          <Key>
+            <PropertyRef Name="HashtagID" />
+          </Key>
+          <Property Name="HashtagID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Hasgtag" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ingredient_Record_Table">
+          <Key>
+            <PropertyRef Name="IngredientRecordID" />
+          </Key>
+          <Property Name="IngredientRecordID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IngredientID" Type="int" Nullable="false" />
+          <Property Name="RecipeID" Type="int" Nullable="false" />
+          <Property Name="Unt" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="IngredientAmountForUse" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ingredient_Table">
+          <Key>
+            <PropertyRef Name="IngredientID" />
+          </Key>
+          <Property Name="IngredientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ingredient" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="IngredientCategoryID" Type="int" Nullable="false" />
+          <Property Name="IngredientUnit" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="AmountInStore" Type="int" Nullable="false" />
+          <Property Name="MerchandiseDescription" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="InStoreOrNot" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IngredientCategory_Table">
+          <Key>
+            <PropertyRef Name="IngredientCategoryID" />
+          </Key>
+          <Property Name="IngredientCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IngredientCategory" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LikeComment_Table">
+          <Key>
+            <PropertyRef Name="CommentLikedID" />
+          </Key>
+          <Property Name="CommentLikedID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CommentID" Type="int" Nullable="false" />
+          <Property Name="MemberID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LikeRecipe_Table">
+          <Key>
+            <PropertyRef Name="RecipeLikedID" />
+          </Key>
+          <Property Name="RecipeLikedID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RecipeID" Type="int" Nullable="false" />
+          <Property Name="MemberID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Member_Rank_Table">
+          <Key>
+            <PropertyRef Name="RankID" />
+          </Key>
+          <Property Name="RankID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RankName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="RankScore" Type="int" />
+        </EntityType>
+        <EntityType Name="Member_Table">
+          <Key>
+            <PropertyRef Name="MemberID" />
+          </Key>
+          <Property Name="MemberID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountName" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Nickname" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="MemberName" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="CellNumber" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="CellConfirm" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmailConfirm" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Birthday" Type="datetime" Nullable="false" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="Info" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ConfirmedOrNot_email" Type="bit" Nullable="false" />
+          <Property Name="ConfirmedOrNot_phone" Type="bit" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="RegisterTime" Type="datetime" Nullable="false" />
+          <Property Name="PersonalRankScore" Type="int" Nullable="false" />
+          <Property Name="RankID" Type="int" Nullable="false" />
+          <Property Name="AuthorityID" Type="int" Nullable="false" />
+          <Property Name="Figure" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Merchandise_Picture_Table">
+          <Key>
+            <PropertyRef Name="MerchandisePicID" />
+          </Key>
+          <Property Name="MerchandisePicID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IngredientID" Type="int" Nullable="false" />
+          <Property Name="MerchandisePicture" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Order_Detail_Table">
+          <Key>
+            <PropertyRef Name="Order_DetailID" />
+          </Key>
+          <Property Name="Order_DetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderiD" Type="int" Nullable="false" />
+          <Property Name="IngredientID" Type="int" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Discount" Type="float" Nullable="false" />
+          <Property Name="InCartQuantity" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Order_Table">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MemberID" Type="int" Nullable="false" />
+          <Property Name="OrderDate" Type="datetime" Nullable="false" />
+          <Property Name="DeliveryCounty" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="DeliveryDistrict" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="DeliveryAddress" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="PayMethod" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="DeliveredDate" Type="datetime" />
+          <Property Name="OrderStatus" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="RecieveMethod" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Recipe_Table">
+          <Key>
+            <PropertyRef Name="RecipeID" />
+          </Key>
+          <Property Name="RecipeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PostTime" Type="datetime" Nullable="false" />
+          <Property Name="RecipeCategoryID" Type="int" Nullable="false" />
+          <Property Name="MemberID" Type="int" Nullable="false" />
+          <Property Name="RecipeName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="RecipeDescription" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="ForHowMany" Type="int" Nullable="false" />
+          <Property Name="TimeNeed" Type="int" Nullable="false" />
+          <Property Name="ShareLink" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Views" Type="int" Nullable="false" />
+          <Property Name="Picture" Type="varbinary(max)" />
+          <Property Name="Video" Type="nvarchar" MaxLength="255" />
+          <Property Name="DisVisible" Type="bit" Nullable="false" />
+          <Property Name="DeleteOrNot" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RecipeCategory_Table">
+          <Key>
+            <PropertyRef Name="RecipeCategoryID" />
+          </Key>
+          <Property Name="RecipeCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RecipeCategory" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Shopping_Cart_table">
+          <Key>
+            <PropertyRef Name="CartID" />
+          </Key>
+          <Property Name="CartID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MemberID" Type="int" Nullable="false" />
+          <Property Name="IngredientID" Type="int" Nullable="false" />
+          <Property Name="InCartQuantity" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Steps_Table">
+          <Key>
+            <PropertyRef Name="StepsID" />
+          </Key>
+          <Property Name="StepsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RecipeID" Type="int" Nullable="false" />
+          <Property Name="StepsNumber" Type="int" Nullable="false" />
+          <Property Name="Steps" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Picture" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Wish_List_Table">
+          <Key>
+            <PropertyRef Name="WishListID" />
+          </Key>
+          <Property Name="WishListID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RecipeID" Type="int" Nullable="false" />
+          <Property Name="MemberID" Type="int" Nullable="false" />
+          <Property Name="BoughtOrNot" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Accusation_Table_AccuseContent_Table">
+          <End Role="AccuseContent_Table" Type="Self.AccuseContent_Table" Multiplicity="1" />
+          <End Role="Accusation_Table" Type="Self.Accusation_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccuseContent_Table">
+              <PropertyRef Name="AccuseID" />
+            </Principal>
+            <Dependent Role="Accusation_Table">
+              <PropertyRef Name="AccuseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accusation_Table_Member_Table">
+          <End Role="Member_Table" Type="Self.Member_Table" Multiplicity="1" />
+          <End Role="Accusation_Table" Type="Self.Accusation_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member_Table">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="Accusation_Table">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Collection_Table_CollectionFolder_Table">
+          <End Role="CollectionFolder_Table" Type="Self.CollectionFolder_Table" Multiplicity="1" />
+          <End Role="Collection_Table" Type="Self.Collection_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CollectionFolder_Table">
+              <PropertyRef Name="CollectionFolderID" />
+            </Principal>
+            <Dependent Role="Collection_Table">
+              <PropertyRef Name="CollectionFolderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Collection_Table_Recipe_Table">
+          <End Role="Recipe_Table" Type="Self.Recipe_Table" Multiplicity="1" />
+          <End Role="Collection_Table" Type="Self.Collection_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipe_Table">
+              <PropertyRef Name="RecipeID" />
+            </Principal>
+            <Dependent Role="Collection_Table">
+              <PropertyRef Name="ReicipeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CollectionFolder_Table_Member_Table">
+          <End Role="Member_Table" Type="Self.Member_Table" Multiplicity="1" />
+          <End Role="CollectionFolder_Table" Type="Self.CollectionFolder_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member_Table">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="CollectionFolder_Table">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommentSection_Table_Member_Table">
+          <End Role="Member_Table" Type="Self.Member_Table" Multiplicity="1" />
+          <End Role="CommentSection_Table" Type="Self.CommentSection_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member_Table">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="CommentSection_Table">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommentSection_Table_Recipe_Table">
+          <End Role="Recipe_Table" Type="Self.Recipe_Table" Multiplicity="1" />
+          <End Role="CommentSection_Table" Type="Self.CommentSection_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipe_Table">
+              <PropertyRef Name="RecipeID" />
+            </Principal>
+            <Dependent Role="CommentSection_Table">
+              <PropertyRef Name="RecipeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Feedback_Table_Feedback_Category_Table1">
+          <End Role="Feedback_Category_Table" Type="Self.Feedback_Category_Table" Multiplicity="1" />
+          <End Role="Feedback_Table" Type="Self.Feedback_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Feedback_Category_Table">
+              <PropertyRef Name="FeedbackCategoryID" />
+            </Principal>
+            <Dependent Role="Feedback_Table">
+              <PropertyRef Name="FeedbackCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Feedback_Table_Feedback_Progress_Table">
+          <End Role="Feedback_Progress_Table" Type="Self.Feedback_Progress_Table" Multiplicity="1" />
+          <End Role="Feedback_Table" Type="Self.Feedback_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Feedback_Progress_Table">
+              <PropertyRef Name="ProgressID" />
+            </Principal>
+            <Dependent Role="Feedback_Table">
+              <PropertyRef Name="ProgressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Feedback_Table_Member_Table">
+          <End Role="Member_Table" Type="Self.Member_Table" Multiplicity="1" />
+          <End Role="Feedback_Table" Type="Self.Feedback_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member_Table">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="Feedback_Table">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hashtag_Record_Table_Hashtag_Table">
+          <End Role="Hashtag_Table" Type="Self.Hashtag_Table" Multiplicity="1" />
+          <End Role="Hashtag_Record_Table" Type="Self.Hashtag_Record_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hashtag_Table">
+              <PropertyRef Name="HashtagID" />
+            </Principal>
+            <Dependent Role="Hashtag_Record_Table">
+              <PropertyRef Name="HashTagID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hashtag_Record_Table_Recipe_Table">
+          <End Role="Recipe_Table" Type="Self.Recipe_Table" Multiplicity="1" />
+          <End Role="Hashtag_Record_Table" Type="Self.Hashtag_Record_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipe_Table">
+              <PropertyRef Name="RecipeID" />
+            </Principal>
+            <Dependent Role="Hashtag_Record_Table">
+              <PropertyRef Name="RecipeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ingredient_Record_Table_Ingredient_Table">
+          <End Role="Ingredient_Table" Type="Self.Ingredient_Table" Multiplicity="1" />
+          <End Role="Ingredient_Record_Table" Type="Self.Ingredient_Record_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingredient_Table">
+              <PropertyRef Name="IngredientID" />
+            </Principal>
+            <Dependent Role="Ingredient_Record_Table">
+              <PropertyRef Name="IngredientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ingredient_Record_Table_Recipe_Table">
+          <End Role="Recipe_Table" Type="Self.Recipe_Table" Multiplicity="1" />
+          <End Role="Ingredient_Record_Table" Type="Self.Ingredient_Record_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipe_Table">
+              <PropertyRef Name="RecipeID" />
+            </Principal>
+            <Dependent Role="Ingredient_Record_Table">
+              <PropertyRef Name="RecipeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ingredient_Table_IngredientCategory_Table">
+          <End Role="IngredientCategory_Table" Type="Self.IngredientCategory_Table" Multiplicity="1" />
+          <End Role="Ingredient_Table" Type="Self.Ingredient_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IngredientCategory_Table">
+              <PropertyRef Name="IngredientCategoryID" />
+            </Principal>
+            <Dependent Role="Ingredient_Table">
+              <PropertyRef Name="IngredientCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LikeComment_Table_CommentSection_Table">
+          <End Role="CommentSection_Table" Type="Self.CommentSection_Table" Multiplicity="1" />
+          <End Role="LikeComment_Table" Type="Self.LikeComment_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CommentSection_Table">
+              <PropertyRef Name="CommentID" />
+            </Principal>
+            <Dependent Role="LikeComment_Table">
+              <PropertyRef Name="CommentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LikeComment_Table_Member_Table">
+          <End Role="Member_Table" Type="Self.Member_Table" Multiplicity="1" />
+          <End Role="LikeComment_Table" Type="Self.LikeComment_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member_Table">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="LikeComment_Table">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LikeRecipe_Table_Member_Table">
+          <End Role="Member_Table" Type="Self.Member_Table" Multiplicity="1" />
+          <End Role="LikeRecipe_Table" Type="Self.LikeRecipe_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member_Table">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="LikeRecipe_Table">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LikeRecipe_Table_Recipe_Table">
+          <End Role="Recipe_Table" Type="Self.Recipe_Table" Multiplicity="1" />
+          <End Role="LikeRecipe_Table" Type="Self.LikeRecipe_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipe_Table">
+              <PropertyRef Name="RecipeID" />
+            </Principal>
+            <Dependent Role="LikeRecipe_Table">
+              <PropertyRef Name="RecipeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Member_Table_Authority_Table">
+          <End Role="Authority_Table" Type="Self.Authority_Table" Multiplicity="1" />
+          <End Role="Member_Table" Type="Self.Member_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Authority_Table">
+              <PropertyRef Name="AuthorityID" />
+            </Principal>
+            <Dependent Role="Member_Table">
+              <PropertyRef Name="AuthorityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Member_Table_Authority_Table1">
+          <End Role="Authority_Table" Type="Self.Authority_Table" Multiplicity="1" />
+          <End Role="Member_Table" Type="Self.Member_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Authority_Table">
+              <PropertyRef Name="AuthorityID" />
+            </Principal>
+            <Dependent Role="Member_Table">
+              <PropertyRef Name="AuthorityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Member_Table_Member_Rank_Table">
+          <End Role="Member_Rank_Table" Type="Self.Member_Rank_Table" Multiplicity="1" />
+          <End Role="Member_Table" Type="Self.Member_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member_Rank_Table">
+              <PropertyRef Name="RankID" />
+            </Principal>
+            <Dependent Role="Member_Table">
+              <PropertyRef Name="RankID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Merchandise_Picture_Table_Ingredient_Table1">
+          <End Role="Ingredient_Table" Type="Self.Ingredient_Table" Multiplicity="1" />
+          <End Role="Merchandise_Picture_Table" Type="Self.Merchandise_Picture_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingredient_Table">
+              <PropertyRef Name="IngredientID" />
+            </Principal>
+            <Dependent Role="Merchandise_Picture_Table">
+              <PropertyRef Name="IngredientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Detail_Table_Ingredient_Table">
+          <End Role="Ingredient_Table" Type="Self.Ingredient_Table" Multiplicity="1" />
+          <End Role="Order_Detail_Table" Type="Self.Order_Detail_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingredient_Table">
+              <PropertyRef Name="IngredientID" />
+            </Principal>
+            <Dependent Role="Order_Detail_Table">
+              <PropertyRef Name="IngredientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Detail_Table_Order_Table">
+          <End Role="Order_Table" Type="Self.Order_Table" Multiplicity="1" />
+          <End Role="Order_Detail_Table" Type="Self.Order_Detail_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order_Table">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="Order_Detail_Table">
+              <PropertyRef Name="OrderiD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Table_Member_Table">
+          <End Role="Member_Table" Type="Self.Member_Table" Multiplicity="1" />
+          <End Role="Order_Table" Type="Self.Order_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member_Table">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="Order_Table">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recipe_Table_Member_Table">
+          <End Role="Member_Table" Type="Self.Member_Table" Multiplicity="1" />
+          <End Role="Recipe_Table" Type="Self.Recipe_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member_Table">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="Recipe_Table">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recipe_Table_RecipeCategory_Table">
+          <End Role="RecipeCategory_Table" Type="Self.RecipeCategory_Table" Multiplicity="1" />
+          <End Role="Recipe_Table" Type="Self.Recipe_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RecipeCategory_Table">
+              <PropertyRef Name="RecipeCategoryID" />
+            </Principal>
+            <Dependent Role="Recipe_Table">
+              <PropertyRef Name="RecipeCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shopping_Cart_table_Ingredient_Table">
+          <End Role="Ingredient_Table" Type="Self.Ingredient_Table" Multiplicity="1" />
+          <End Role="Shopping_Cart_table" Type="Self.Shopping_Cart_table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingredient_Table">
+              <PropertyRef Name="IngredientID" />
+            </Principal>
+            <Dependent Role="Shopping_Cart_table">
+              <PropertyRef Name="IngredientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shopping_Cart_table_Member_Table">
+          <End Role="Member_Table" Type="Self.Member_Table" Multiplicity="1" />
+          <End Role="Shopping_Cart_table" Type="Self.Shopping_Cart_table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member_Table">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="Shopping_Cart_table">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Steps_Table_Recipe_Table">
+          <End Role="Recipe_Table" Type="Self.Recipe_Table" Multiplicity="1" />
+          <End Role="Steps_Table" Type="Self.Steps_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipe_Table">
+              <PropertyRef Name="RecipeID" />
+            </Principal>
+            <Dependent Role="Steps_Table">
+              <PropertyRef Name="RecipeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Wish_List_Table_Member_Table">
+          <End Role="Member_Table" Type="Self.Member_Table" Multiplicity="1" />
+          <End Role="Wish_List_Table" Type="Self.Wish_List_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member_Table">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="Wish_List_Table">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Wish_List_Table_Recipe_Table">
+          <End Role="Recipe_Table" Type="Self.Recipe_Table" Multiplicity="1" />
+          <End Role="Wish_List_Table" Type="Self.Wish_List_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipe_Table">
+              <PropertyRef Name="RecipeID" />
+            </Principal>
+            <Dependent Role="Wish_List_Table">
+              <PropertyRef Name="RecipeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DeliciousModelStoreContainer">
+          <EntitySet Name="Accusation_Table" EntityType="Self.Accusation_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AccuseContent_Table" EntityType="Self.AccuseContent_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admin_Table" EntityType="Self.Admin_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Authority_Table" EntityType="Self.Authority_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Collection_Table" EntityType="Self.Collection_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CollectionFolder_Table" EntityType="Self.CollectionFolder_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CommentSection_Table" EntityType="Self.CommentSection_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Feedback_Category_Table" EntityType="Self.Feedback_Category_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Feedback_Progress_Table" EntityType="Self.Feedback_Progress_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Feedback_Table" EntityType="Self.Feedback_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hashtag_Record_Table" EntityType="Self.Hashtag_Record_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hashtag_Table" EntityType="Self.Hashtag_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ingredient_Record_Table" EntityType="Self.Ingredient_Record_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ingredient_Table" EntityType="Self.Ingredient_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IngredientCategory_Table" EntityType="Self.IngredientCategory_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LikeComment_Table" EntityType="Self.LikeComment_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LikeRecipe_Table" EntityType="Self.LikeRecipe_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Member_Rank_Table" EntityType="Self.Member_Rank_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Member_Table" EntityType="Self.Member_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Merchandise_Picture_Table" EntityType="Self.Merchandise_Picture_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order_Detail_Table" EntityType="Self.Order_Detail_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order_Table" EntityType="Self.Order_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Recipe_Table" EntityType="Self.Recipe_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecipeCategory_Table" EntityType="Self.RecipeCategory_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Shopping_Cart_table" EntityType="Self.Shopping_Cart_table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Steps_Table" EntityType="Self.Steps_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wish_List_Table" EntityType="Self.Wish_List_Table" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Accusation_Table_AccuseContent_Table" Association="Self.FK_Accusation_Table_AccuseContent_Table">
+            <End Role="AccuseContent_Table" EntitySet="AccuseContent_Table" />
+            <End Role="Accusation_Table" EntitySet="Accusation_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accusation_Table_Member_Table" Association="Self.FK_Accusation_Table_Member_Table">
+            <End Role="Member_Table" EntitySet="Member_Table" />
+            <End Role="Accusation_Table" EntitySet="Accusation_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Collection_Table_CollectionFolder_Table" Association="Self.FK_Collection_Table_CollectionFolder_Table">
+            <End Role="CollectionFolder_Table" EntitySet="CollectionFolder_Table" />
+            <End Role="Collection_Table" EntitySet="Collection_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Collection_Table_Recipe_Table" Association="Self.FK_Collection_Table_Recipe_Table">
+            <End Role="Recipe_Table" EntitySet="Recipe_Table" />
+            <End Role="Collection_Table" EntitySet="Collection_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CollectionFolder_Table_Member_Table" Association="Self.FK_CollectionFolder_Table_Member_Table">
+            <End Role="Member_Table" EntitySet="Member_Table" />
+            <End Role="CollectionFolder_Table" EntitySet="CollectionFolder_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommentSection_Table_Member_Table" Association="Self.FK_CommentSection_Table_Member_Table">
+            <End Role="Member_Table" EntitySet="Member_Table" />
+            <End Role="CommentSection_Table" EntitySet="CommentSection_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommentSection_Table_Recipe_Table" Association="Self.FK_CommentSection_Table_Recipe_Table">
+            <End Role="Recipe_Table" EntitySet="Recipe_Table" />
+            <End Role="CommentSection_Table" EntitySet="CommentSection_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Feedback_Table_Feedback_Category_Table1" Association="Self.FK_Feedback_Table_Feedback_Category_Table1">
+            <End Role="Feedback_Category_Table" EntitySet="Feedback_Category_Table" />
+            <End Role="Feedback_Table" EntitySet="Feedback_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Feedback_Table_Feedback_Progress_Table" Association="Self.FK_Feedback_Table_Feedback_Progress_Table">
+            <End Role="Feedback_Progress_Table" EntitySet="Feedback_Progress_Table" />
+            <End Role="Feedback_Table" EntitySet="Feedback_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Feedback_Table_Member_Table" Association="Self.FK_Feedback_Table_Member_Table">
+            <End Role="Member_Table" EntitySet="Member_Table" />
+            <End Role="Feedback_Table" EntitySet="Feedback_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hashtag_Record_Table_Hashtag_Table" Association="Self.FK_Hashtag_Record_Table_Hashtag_Table">
+            <End Role="Hashtag_Table" EntitySet="Hashtag_Table" />
+            <End Role="Hashtag_Record_Table" EntitySet="Hashtag_Record_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hashtag_Record_Table_Recipe_Table" Association="Self.FK_Hashtag_Record_Table_Recipe_Table">
+            <End Role="Recipe_Table" EntitySet="Recipe_Table" />
+            <End Role="Hashtag_Record_Table" EntitySet="Hashtag_Record_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ingredient_Record_Table_Ingredient_Table" Association="Self.FK_Ingredient_Record_Table_Ingredient_Table">
+            <End Role="Ingredient_Table" EntitySet="Ingredient_Table" />
+            <End Role="Ingredient_Record_Table" EntitySet="Ingredient_Record_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ingredient_Record_Table_Recipe_Table" Association="Self.FK_Ingredient_Record_Table_Recipe_Table">
+            <End Role="Recipe_Table" EntitySet="Recipe_Table" />
+            <End Role="Ingredient_Record_Table" EntitySet="Ingredient_Record_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ingredient_Table_IngredientCategory_Table" Association="Self.FK_Ingredient_Table_IngredientCategory_Table">
+            <End Role="IngredientCategory_Table" EntitySet="IngredientCategory_Table" />
+            <End Role="Ingredient_Table" EntitySet="Ingredient_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LikeComment_Table_CommentSection_Table" Association="Self.FK_LikeComment_Table_CommentSection_Table">
+            <End Role="CommentSection_Table" EntitySet="CommentSection_Table" />
+            <End Role="LikeComment_Table" EntitySet="LikeComment_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LikeComment_Table_Member_Table" Association="Self.FK_LikeComment_Table_Member_Table">
+            <End Role="Member_Table" EntitySet="Member_Table" />
+            <End Role="LikeComment_Table" EntitySet="LikeComment_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LikeRecipe_Table_Member_Table" Association="Self.FK_LikeRecipe_Table_Member_Table">
+            <End Role="Member_Table" EntitySet="Member_Table" />
+            <End Role="LikeRecipe_Table" EntitySet="LikeRecipe_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LikeRecipe_Table_Recipe_Table" Association="Self.FK_LikeRecipe_Table_Recipe_Table">
+            <End Role="Recipe_Table" EntitySet="Recipe_Table" />
+            <End Role="LikeRecipe_Table" EntitySet="LikeRecipe_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Member_Table_Authority_Table" Association="Self.FK_Member_Table_Authority_Table">
+            <End Role="Authority_Table" EntitySet="Authority_Table" />
+            <End Role="Member_Table" EntitySet="Member_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Member_Table_Authority_Table1" Association="Self.FK_Member_Table_Authority_Table1">
+            <End Role="Authority_Table" EntitySet="Authority_Table" />
+            <End Role="Member_Table" EntitySet="Member_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Member_Table_Member_Rank_Table" Association="Self.FK_Member_Table_Member_Rank_Table">
+            <End Role="Member_Rank_Table" EntitySet="Member_Rank_Table" />
+            <End Role="Member_Table" EntitySet="Member_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Merchandise_Picture_Table_Ingredient_Table1" Association="Self.FK_Merchandise_Picture_Table_Ingredient_Table1">
+            <End Role="Ingredient_Table" EntitySet="Ingredient_Table" />
+            <End Role="Merchandise_Picture_Table" EntitySet="Merchandise_Picture_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Detail_Table_Ingredient_Table" Association="Self.FK_Order_Detail_Table_Ingredient_Table">
+            <End Role="Ingredient_Table" EntitySet="Ingredient_Table" />
+            <End Role="Order_Detail_Table" EntitySet="Order_Detail_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Detail_Table_Order_Table" Association="Self.FK_Order_Detail_Table_Order_Table">
+            <End Role="Order_Table" EntitySet="Order_Table" />
+            <End Role="Order_Detail_Table" EntitySet="Order_Detail_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Table_Member_Table" Association="Self.FK_Order_Table_Member_Table">
+            <End Role="Member_Table" EntitySet="Member_Table" />
+            <End Role="Order_Table" EntitySet="Order_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recipe_Table_Member_Table" Association="Self.FK_Recipe_Table_Member_Table">
+            <End Role="Member_Table" EntitySet="Member_Table" />
+            <End Role="Recipe_Table" EntitySet="Recipe_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recipe_Table_RecipeCategory_Table" Association="Self.FK_Recipe_Table_RecipeCategory_Table">
+            <End Role="RecipeCategory_Table" EntitySet="RecipeCategory_Table" />
+            <End Role="Recipe_Table" EntitySet="Recipe_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shopping_Cart_table_Ingredient_Table" Association="Self.FK_Shopping_Cart_table_Ingredient_Table">
+            <End Role="Ingredient_Table" EntitySet="Ingredient_Table" />
+            <End Role="Shopping_Cart_table" EntitySet="Shopping_Cart_table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shopping_Cart_table_Member_Table" Association="Self.FK_Shopping_Cart_table_Member_Table">
+            <End Role="Member_Table" EntitySet="Member_Table" />
+            <End Role="Shopping_Cart_table" EntitySet="Shopping_Cart_table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Steps_Table_Recipe_Table" Association="Self.FK_Steps_Table_Recipe_Table">
+            <End Role="Recipe_Table" EntitySet="Recipe_Table" />
+            <End Role="Steps_Table" EntitySet="Steps_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Wish_List_Table_Member_Table" Association="Self.FK_Wish_List_Table_Member_Table">
+            <End Role="Member_Table" EntitySet="Member_Table" />
+            <End Role="Wish_List_Table" EntitySet="Wish_List_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Wish_List_Table_Recipe_Table" Association="Self.FK_Wish_List_Table_Recipe_Table">
+            <End Role="Recipe_Table" EntitySet="Recipe_Table" />
+            <End Role="Wish_List_Table" EntitySet="Wish_List_Table" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DeliciousModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Accusation_Table">
+          <Key>
+            <PropertyRef Name="AccusationRightID" />
+          </Key>
+          <Property Name="AccusationRightID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MemberID" Type="Int32" Nullable="false" />
+          <Property Name="AccuseID" Type="Int32" Nullable="false" />
+          <Property Name="AccusedAvatar" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AccusedID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="ProgressID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AccuseContent_Table" Relationship="Self.FK_Accusation_Table_AccuseContent_Table" FromRole="Accusation_Table" ToRole="AccuseContent_Table" />
+          <NavigationProperty Name="Member_Table" Relationship="Self.FK_Accusation_Table_Member_Table" FromRole="Accusation_Table" ToRole="Member_Table" />
+        </EntityType>
+        <EntityType Name="AccuseContent_Table">
+          <Key>
+            <PropertyRef Name="AccuseID" />
+          </Key>
+          <Property Name="AccuseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Accusation" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Accusation_Table" Relationship="Self.FK_Accusation_Table_AccuseContent_Table" FromRole="AccuseContent_Table" ToRole="Accusation_Table" />
+        </EntityType>
+        <EntityType Name="Admin_Table">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdminName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AccountName" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AdminAuthority" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Authority_Table">
+          <Key>
+            <PropertyRef Name="AuthorityID" />
+          </Key>
+          <Property Name="AuthorityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Authority" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Member_Table" Relationship="Self.FK_Member_Table_Authority_Table" FromRole="Authority_Table" ToRole="Member_Table" />
+          <NavigationProperty Name="Member_Table1" Relationship="Self.FK_Member_Table_Authority_Table1" FromRole="Authority_Table" ToRole="Member_Table" />
+        </EntityType>
+        <EntityType Name="Collection_Table">
+          <Key>
+            <PropertyRef Name="CollectionID" />
+          </Key>
+          <Property Name="CollectionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CollectionFolderID" Type="Int32" Nullable="false" />
+          <Property Name="ReicipeID" Type="Int32" Nullable="false" />
+          <Property Name="Datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="CollectionFolder_Table" Relationship="Self.FK_Collection_Table_CollectionFolder_Table" FromRole="Collection_Table" ToRole="CollectionFolder_Table" />
+          <NavigationProperty Name="Recipe_Table" Relationship="Self.FK_Collection_Table_Recipe_Table" FromRole="Collection_Table" ToRole="Recipe_Table" />
+        </EntityType>
+        <EntityType Name="CollectionFolder_Table">
+          <Key>
+            <PropertyRef Name="CollectionFolderID" />
+          </Key>
+          <Property Name="CollectionFolderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CollectionFolder" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MemberID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Collection_Table" Relationship="Self.FK_Collection_Table_CollectionFolder_Table" FromRole="CollectionFolder_Table" ToRole="Collection_Table" />
+          <NavigationProperty Name="Member_Table" Relationship="Self.FK_CollectionFolder_Table_Member_Table" FromRole="CollectionFolder_Table" ToRole="Member_Table" />
+        </EntityType>
+        <EntityType Name="CommentSection_Table">
+          <Key>
+            <PropertyRef Name="CommentID" />
+          </Key>
+          <Property Name="CommentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RecipeID" Type="Int32" Nullable="false" />
+          <Property Name="CommentFloor" Type="Int32" Nullable="false" />
+          <Property Name="MemberID" Type="Int32" Nullable="false" />
+          <Property Name="Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Video" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PostTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DisVisible" Type="Boolean" Nullable="false" />
+          <Property Name="DeleteOrNot" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Member_Table" Relationship="Self.FK_CommentSection_Table_Member_Table" FromRole="CommentSection_Table" ToRole="Member_Table" />
+          <NavigationProperty Name="Recipe_Table" Relationship="Self.FK_CommentSection_Table_Recipe_Table" FromRole="CommentSection_Table" ToRole="Recipe_Table" />
+          <NavigationProperty Name="LikeComment_Table" Relationship="Self.FK_LikeComment_Table_CommentSection_Table" FromRole="CommentSection_Table" ToRole="LikeComment_Table" />
+        </EntityType>
+        <EntityType Name="Feedback_Category_Table">
+          <Key>
+            <PropertyRef Name="FeedbackCategoryID" />
+          </Key>
+          <Property Name="FeedbackCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FeedbackCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Feedback_Table" Relationship="Self.FK_Feedback_Table_Feedback_Category_Table1" FromRole="Feedback_Category_Table" ToRole="Feedback_Table" />
+        </EntityType>
+        <EntityType Name="Feedback_Progress_Table">
+          <Key>
+            <PropertyRef Name="ProgressID" />
+          </Key>
+          <Property Name="ProgressID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProgressContent" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Feedback_Table" Relationship="Self.FK_Feedback_Table_Feedback_Progress_Table" FromRole="Feedback_Progress_Table" ToRole="Feedback_Table" />
+        </EntityType>
+        <EntityType Name="Feedback_Table">
+          <Key>
+            <PropertyRef Name="FeedbackID" />
+          </Key>
+          <Property Name="FeedbackID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FeedbackCategoryID" Type="Int32" Nullable="false" />
+          <Property Name="MemberID" Type="Int32" Nullable="false" />
+          <Property Name="Contents" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProgressID" Type="Int32" Nullable="false" />
+          <Property Name="Comment" Type="Int32" />
+          <Property Name="FeedbackDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FeedbackContent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Feedback_Category_Table" Relationship="Self.FK_Feedback_Table_Feedback_Category_Table1" FromRole="Feedback_Table" ToRole="Feedback_Category_Table" />
+          <NavigationProperty Name="Feedback_Progress_Table" Relationship="Self.FK_Feedback_Table_Feedback_Progress_Table" FromRole="Feedback_Table" ToRole="Feedback_Progress_Table" />
+          <NavigationProperty Name="Member_Table" Relationship="Self.FK_Feedback_Table_Member_Table" FromRole="Feedback_Table" ToRole="Member_Table" />
+        </EntityType>
+        <EntityType Name="Hashtag_Record_Table">
+          <Key>
+            <PropertyRef Name="HashTagFolderID" />
+          </Key>
+          <Property Name="HashTagFolderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HashTagID" Type="Int32" Nullable="false" />
+          <Property Name="RecipeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Hashtag_Table" Relationship="Self.FK_Hashtag_Record_Table_Hashtag_Table" FromRole="Hashtag_Record_Table" ToRole="Hashtag_Table" />
+          <NavigationProperty Name="Recipe_Table" Relationship="Self.FK_Hashtag_Record_Table_Recipe_Table" FromRole="Hashtag_Record_Table" ToRole="Recipe_Table" />
+        </EntityType>
+        <EntityType Name="Hashtag_Table">
+          <Key>
+            <PropertyRef Name="HashtagID" />
+          </Key>
+          <Property Name="HashtagID" Type="Int32" Nullable="false" />
+          <Property Name="Hasgtag" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Hashtag_Record_Table" Relationship="Self.FK_Hashtag_Record_Table_Hashtag_Table" FromRole="Hashtag_Table" ToRole="Hashtag_Record_Table" />
+        </EntityType>
+        <EntityType Name="Ingredient_Record_Table">
+          <Key>
+            <PropertyRef Name="IngredientRecordID" />
+          </Key>
+          <Property Name="IngredientRecordID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IngredientID" Type="Int32" Nullable="false" />
+          <Property Name="RecipeID" Type="Int32" Nullable="false" />
+          <Property Name="Unt" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IngredientAmountForUse" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Ingredient_Table" Relationship="Self.FK_Ingredient_Record_Table_Ingredient_Table" FromRole="Ingredient_Record_Table" ToRole="Ingredient_Table" />
+          <NavigationProperty Name="Recipe_Table" Relationship="Self.FK_Ingredient_Record_Table_Recipe_Table" FromRole="Ingredient_Record_Table" ToRole="Recipe_Table" />
+        </EntityType>
+        <EntityType Name="Ingredient_Table">
+          <Key>
+            <PropertyRef Name="IngredientID" />
+          </Key>
+          <Property Name="IngredientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ingredient" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IngredientCategoryID" Type="Int32" Nullable="false" />
+          <Property Name="IngredientUnit" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="AmountInStore" Type="Int32" Nullable="false" />
+          <Property Name="MerchandiseDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="InStoreOrNot" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Ingredient_Record_Table" Relationship="Self.FK_Ingredient_Record_Table_Ingredient_Table" FromRole="Ingredient_Table" ToRole="Ingredient_Record_Table" />
+          <NavigationProperty Name="IngredientCategory_Table" Relationship="Self.FK_Ingredient_Table_IngredientCategory_Table" FromRole="Ingredient_Table" ToRole="IngredientCategory_Table" />
+          <NavigationProperty Name="Merchandise_Picture_Table" Relationship="Self.FK_Merchandise_Picture_Table_Ingredient_Table1" FromRole="Ingredient_Table" ToRole="Merchandise_Picture_Table" />
+          <NavigationProperty Name="Order_Detail_Table" Relationship="Self.FK_Order_Detail_Table_Ingredient_Table" FromRole="Ingredient_Table" ToRole="Order_Detail_Table" />
+          <NavigationProperty Name="Shopping_Cart_table" Relationship="Self.FK_Shopping_Cart_table_Ingredient_Table" FromRole="Ingredient_Table" ToRole="Shopping_Cart_table" />
+        </EntityType>
+        <EntityType Name="IngredientCategory_Table">
+          <Key>
+            <PropertyRef Name="IngredientCategoryID" />
+          </Key>
+          <Property Name="IngredientCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IngredientCategory" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Ingredient_Table" Relationship="Self.FK_Ingredient_Table_IngredientCategory_Table" FromRole="IngredientCategory_Table" ToRole="Ingredient_Table" />
+        </EntityType>
+        <EntityType Name="LikeComment_Table">
+          <Key>
+            <PropertyRef Name="CommentLikedID" />
+          </Key>
+          <Property Name="CommentLikedID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CommentID" Type="Int32" Nullable="false" />
+          <Property Name="MemberID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CommentSection_Table" Relationship="Self.FK_LikeComment_Table_CommentSection_Table" FromRole="LikeComment_Table" ToRole="CommentSection_Table" />
+          <NavigationProperty Name="Member_Table" Relationship="Self.FK_LikeComment_Table_Member_Table" FromRole="LikeComment_Table" ToRole="Member_Table" />
+        </EntityType>
+        <EntityType Name="LikeRecipe_Table">
+          <Key>
+            <PropertyRef Name="RecipeLikedID" />
+          </Key>
+          <Property Name="RecipeLikedID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RecipeID" Type="Int32" Nullable="false" />
+          <Property Name="MemberID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Member_Table" Relationship="Self.FK_LikeRecipe_Table_Member_Table" FromRole="LikeRecipe_Table" ToRole="Member_Table" />
+          <NavigationProperty Name="Recipe_Table" Relationship="Self.FK_LikeRecipe_Table_Recipe_Table" FromRole="LikeRecipe_Table" ToRole="Recipe_Table" />
+        </EntityType>
+        <EntityType Name="Member_Rank_Table">
+          <Key>
+            <PropertyRef Name="RankID" />
+          </Key>
+          <Property Name="RankID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RankName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RankScore" Type="Int32" />
+          <NavigationProperty Name="Member_Table" Relationship="Self.FK_Member_Table_Member_Rank_Table" FromRole="Member_Rank_Table" ToRole="Member_Table" />
+        </EntityType>
+        <EntityType Name="Member_Table">
+          <Key>
+            <PropertyRef Name="MemberID" />
+          </Key>
+          <Property Name="MemberID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountName" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nickname" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MemberName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CellNumber" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CellConfirm" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmailConfirm" Type="Guid" Nullable="false" />
+          <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Gender" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Info" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ConfirmedOrNot_email" Type="Boolean" Nullable="false" />
+          <Property Name="ConfirmedOrNot_phone" Type="Boolean" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RegisterTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PersonalRankScore" Type="Int32" Nullable="false" />
+          <Property Name="RankID" Type="Int32" Nullable="false" />
+          <Property Name="AuthorityID" Type="Int32" Nullable="false" />
+          <Property Name="Figure" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Accusation_Table" Relationship="Self.FK_Accusation_Table_Member_Table" FromRole="Member_Table" ToRole="Accusation_Table" />
+          <NavigationProperty Name="Authority_Table" Relationship="Self.FK_Member_Table_Authority_Table" FromRole="Member_Table" ToRole="Authority_Table" />
+          <NavigationProperty Name="Authority_Table1" Relationship="Self.FK_Member_Table_Authority_Table1" FromRole="Member_Table" ToRole="Authority_Table" />
+          <NavigationProperty Name="CollectionFolder_Table" Relationship="Self.FK_CollectionFolder_Table_Member_Table" FromRole="Member_Table" ToRole="CollectionFolder_Table" />
+          <NavigationProperty Name="CommentSection_Table" Relationship="Self.FK_CommentSection_Table_Member_Table" FromRole="Member_Table" ToRole="CommentSection_Table" />
+          <NavigationProperty Name="Feedback_Table" Relationship="Self.FK_Feedback_Table_Member_Table" FromRole="Member_Table" ToRole="Feedback_Table" />
+          <NavigationProperty Name="LikeComment_Table" Relationship="Self.FK_LikeComment_Table_Member_Table" FromRole="Member_Table" ToRole="LikeComment_Table" />
+          <NavigationProperty Name="LikeRecipe_Table" Relationship="Self.FK_LikeRecipe_Table_Member_Table" FromRole="Member_Table" ToRole="LikeRecipe_Table" />
+          <NavigationProperty Name="Member_Rank_Table" Relationship="Self.FK_Member_Table_Member_Rank_Table" FromRole="Member_Table" ToRole="Member_Rank_Table" />
+          <NavigationProperty Name="Order_Table" Relationship="Self.FK_Order_Table_Member_Table" FromRole="Member_Table" ToRole="Order_Table" />
+          <NavigationProperty Name="Recipe_Table" Relationship="Self.FK_Recipe_Table_Member_Table" FromRole="Member_Table" ToRole="Recipe_Table" />
+          <NavigationProperty Name="Shopping_Cart_table" Relationship="Self.FK_Shopping_Cart_table_Member_Table" FromRole="Member_Table" ToRole="Shopping_Cart_table" />
+          <NavigationProperty Name="Wish_List_Table" Relationship="Self.FK_Wish_List_Table_Member_Table" FromRole="Member_Table" ToRole="Wish_List_Table" />
+        </EntityType>
+        <EntityType Name="Merchandise_Picture_Table">
+          <Key>
+            <PropertyRef Name="MerchandisePicID" />
+          </Key>
+          <Property Name="MerchandisePicID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IngredientID" Type="Int32" Nullable="false" />
+          <Property Name="MerchandisePicture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Ingredient_Table" Relationship="Self.FK_Merchandise_Picture_Table_Ingredient_Table1" FromRole="Merchandise_Picture_Table" ToRole="Ingredient_Table" />
+        </EntityType>
+        <EntityType Name="Order_Detail_Table">
+          <Key>
+            <PropertyRef Name="Order_DetailID" />
+          </Key>
+          <Property Name="Order_DetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderiD" Type="Int32" Nullable="false" />
+          <Property Name="IngredientID" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Discount" Type="Double" Nullable="false" />
+          <Property Name="InCartQuantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Ingredient_Table" Relationship="Self.FK_Order_Detail_Table_Ingredient_Table" FromRole="Order_Detail_Table" ToRole="Ingredient_Table" />
+          <NavigationProperty Name="Order_Table" Relationship="Self.FK_Order_Detail_Table_Order_Table" FromRole="Order_Detail_Table" ToRole="Order_Table" />
+        </EntityType>
+        <EntityType Name="Order_Table">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MemberID" Type="Int32" Nullable="false" />
+          <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DeliveryCounty" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DeliveryDistrict" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DeliveryAddress" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PayMethod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DeliveredDate" Type="DateTime" Precision="3" />
+          <Property Name="OrderStatus" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RecieveMethod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Member_Table" Relationship="Self.FK_Order_Table_Member_Table" FromRole="Order_Table" ToRole="Member_Table" />
+          <NavigationProperty Name="Order_Detail_Table" Relationship="Self.FK_Order_Detail_Table_Order_Table" FromRole="Order_Table" ToRole="Order_Detail_Table" />
+        </EntityType>
+        <EntityType Name="Recipe_Table">
+          <Key>
+            <PropertyRef Name="RecipeID" />
+          </Key>
+          <Property Name="RecipeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PostTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="RecipeCategoryID" Type="Int32" Nullable="false" />
+          <Property Name="MemberID" Type="Int32" Nullable="false" />
+          <Property Name="RecipeName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RecipeDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ForHowMany" Type="Int32" Nullable="false" />
+          <Property Name="TimeNeed" Type="Int32" Nullable="false" />
+          <Property Name="ShareLink" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Views" Type="Int32" Nullable="false" />
+          <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Video" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DisVisible" Type="Boolean" Nullable="false" />
+          <Property Name="DeleteOrNot" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Collection_Table" Relationship="Self.FK_Collection_Table_Recipe_Table" FromRole="Recipe_Table" ToRole="Collection_Table" />
+          <NavigationProperty Name="CommentSection_Table" Relationship="Self.FK_CommentSection_Table_Recipe_Table" FromRole="Recipe_Table" ToRole="CommentSection_Table" />
+          <NavigationProperty Name="Hashtag_Record_Table" Relationship="Self.FK_Hashtag_Record_Table_Recipe_Table" FromRole="Recipe_Table" ToRole="Hashtag_Record_Table" />
+          <NavigationProperty Name="Ingredient_Record_Table" Relationship="Self.FK_Ingredient_Record_Table_Recipe_Table" FromRole="Recipe_Table" ToRole="Ingredient_Record_Table" />
+          <NavigationProperty Name="LikeRecipe_Table" Relationship="Self.FK_LikeRecipe_Table_Recipe_Table" FromRole="Recipe_Table" ToRole="LikeRecipe_Table" />
+          <NavigationProperty Name="Member_Table" Relationship="Self.FK_Recipe_Table_Member_Table" FromRole="Recipe_Table" ToRole="Member_Table" />
+          <NavigationProperty Name="RecipeCategory_Table" Relationship="Self.FK_Recipe_Table_RecipeCategory_Table" FromRole="Recipe_Table" ToRole="RecipeCategory_Table" />
+          <NavigationProperty Name="Steps_Table" Relationship="Self.FK_Steps_Table_Recipe_Table" FromRole="Recipe_Table" ToRole="Steps_Table" />
+          <NavigationProperty Name="Wish_List_Table" Relationship="Self.FK_Wish_List_Table_Recipe_Table" FromRole="Recipe_Table" ToRole="Wish_List_Table" />
+        </EntityType>
+        <EntityType Name="RecipeCategory_Table">
+          <Key>
+            <PropertyRef Name="RecipeCategoryID" />
+          </Key>
+          <Property Name="RecipeCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RecipeCategory" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Recipe_Table" Relationship="Self.FK_Recipe_Table_RecipeCategory_Table" FromRole="RecipeCategory_Table" ToRole="Recipe_Table" />
+        </EntityType>
+        <EntityType Name="Shopping_Cart_table">
+          <Key>
+            <PropertyRef Name="CartID" />
+          </Key>
+          <Property Name="CartID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MemberID" Type="Int32" Nullable="false" />
+          <Property Name="IngredientID" Type="Int32" Nullable="false" />
+          <Property Name="InCartQuantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Ingredient_Table" Relationship="Self.FK_Shopping_Cart_table_Ingredient_Table" FromRole="Shopping_Cart_table" ToRole="Ingredient_Table" />
+          <NavigationProperty Name="Member_Table" Relationship="Self.FK_Shopping_Cart_table_Member_Table" FromRole="Shopping_Cart_table" ToRole="Member_Table" />
+        </EntityType>
+        <EntityType Name="Steps_Table">
+          <Key>
+            <PropertyRef Name="StepsID" />
+          </Key>
+          <Property Name="StepsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RecipeID" Type="Int32" Nullable="false" />
+          <Property Name="StepsNumber" Type="Int32" Nullable="false" />
+          <Property Name="Steps" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Recipe_Table" Relationship="Self.FK_Steps_Table_Recipe_Table" FromRole="Steps_Table" ToRole="Recipe_Table" />
+        </EntityType>
+        <EntityType Name="Wish_List_Table">
+          <Key>
+            <PropertyRef Name="WishListID" />
+          </Key>
+          <Property Name="WishListID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RecipeID" Type="Int32" Nullable="false" />
+          <Property Name="MemberID" Type="Int32" Nullable="false" />
+          <Property Name="BoughtOrNot" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Member_Table" Relationship="Self.FK_Wish_List_Table_Member_Table" FromRole="Wish_List_Table" ToRole="Member_Table" />
+          <NavigationProperty Name="Recipe_Table" Relationship="Self.FK_Wish_List_Table_Recipe_Table" FromRole="Wish_List_Table" ToRole="Recipe_Table" />
+        </EntityType>
+        <Association Name="FK_Accusation_Table_AccuseContent_Table">
+          <End Role="AccuseContent_Table" Type="Self.AccuseContent_Table" Multiplicity="1" />
+          <End Role="Accusation_Table" Type="Self.Accusation_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccuseContent_Table">
+              <PropertyRef Name="AccuseID" />
+            </Principal>
+            <Dependent Role="Accusation_Table">
+              <PropertyRef Name="AccuseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accusation_Table_Member_Table">
+          <End Role="Member_Table" Type="Self.Member_Table" Multiplicity="1" />
+          <End Role="Accusation_Table" Type="Self.Accusation_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member_Table">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="Accusation_Table">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Member_Table_Authority_Table">
+          <End Role="Authority_Table" Type="Self.Authority_Table" Multiplicity="1" />
+          <End Role="Member_Table" Type="Self.Member_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Authority_Table">
+              <PropertyRef Name="AuthorityID" />
+            </Principal>
+            <Dependent Role="Member_Table">
+              <PropertyRef Name="AuthorityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Member_Table_Authority_Table1">
+          <End Role="Authority_Table" Type="Self.Authority_Table" Multiplicity="1" />
+          <End Role="Member_Table" Type="Self.Member_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Authority_Table">
+              <PropertyRef Name="AuthorityID" />
+            </Principal>
+            <Dependent Role="Member_Table">
+              <PropertyRef Name="AuthorityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Collection_Table_CollectionFolder_Table">
+          <End Role="CollectionFolder_Table" Type="Self.CollectionFolder_Table" Multiplicity="1" />
+          <End Role="Collection_Table" Type="Self.Collection_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CollectionFolder_Table">
+              <PropertyRef Name="CollectionFolderID" />
+            </Principal>
+            <Dependent Role="Collection_Table">
+              <PropertyRef Name="CollectionFolderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Collection_Table_Recipe_Table">
+          <End Role="Recipe_Table" Type="Self.Recipe_Table" Multiplicity="1" />
+          <End Role="Collection_Table" Type="Self.Collection_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipe_Table">
+              <PropertyRef Name="RecipeID" />
+            </Principal>
+            <Dependent Role="Collection_Table">
+              <PropertyRef Name="ReicipeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CollectionFolder_Table_Member_Table">
+          <End Role="Member_Table" Type="Self.Member_Table" Multiplicity="1" />
+          <End Role="CollectionFolder_Table" Type="Self.CollectionFolder_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member_Table">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="CollectionFolder_Table">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommentSection_Table_Member_Table">
+          <End Role="Member_Table" Type="Self.Member_Table" Multiplicity="1" />
+          <End Role="CommentSection_Table" Type="Self.CommentSection_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member_Table">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="CommentSection_Table">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommentSection_Table_Recipe_Table">
+          <End Role="Recipe_Table" Type="Self.Recipe_Table" Multiplicity="1" />
+          <End Role="CommentSection_Table" Type="Self.CommentSection_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipe_Table">
+              <PropertyRef Name="RecipeID" />
+            </Principal>
+            <Dependent Role="CommentSection_Table">
+              <PropertyRef Name="RecipeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LikeComment_Table_CommentSection_Table">
+          <End Role="CommentSection_Table" Type="Self.CommentSection_Table" Multiplicity="1" />
+          <End Role="LikeComment_Table" Type="Self.LikeComment_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CommentSection_Table">
+              <PropertyRef Name="CommentID" />
+            </Principal>
+            <Dependent Role="LikeComment_Table">
+              <PropertyRef Name="CommentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Feedback_Table_Feedback_Category_Table1">
+          <End Role="Feedback_Category_Table" Type="Self.Feedback_Category_Table" Multiplicity="1" />
+          <End Role="Feedback_Table" Type="Self.Feedback_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Feedback_Category_Table">
+              <PropertyRef Name="FeedbackCategoryID" />
+            </Principal>
+            <Dependent Role="Feedback_Table">
+              <PropertyRef Name="FeedbackCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Feedback_Table_Feedback_Progress_Table">
+          <End Role="Feedback_Progress_Table" Type="Self.Feedback_Progress_Table" Multiplicity="1" />
+          <End Role="Feedback_Table" Type="Self.Feedback_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Feedback_Progress_Table">
+              <PropertyRef Name="ProgressID" />
+            </Principal>
+            <Dependent Role="Feedback_Table">
+              <PropertyRef Name="ProgressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Feedback_Table_Member_Table">
+          <End Role="Member_Table" Type="Self.Member_Table" Multiplicity="1" />
+          <End Role="Feedback_Table" Type="Self.Feedback_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member_Table">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="Feedback_Table">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hashtag_Record_Table_Hashtag_Table">
+          <End Role="Hashtag_Table" Type="Self.Hashtag_Table" Multiplicity="1" />
+          <End Role="Hashtag_Record_Table" Type="Self.Hashtag_Record_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hashtag_Table">
+              <PropertyRef Name="HashtagID" />
+            </Principal>
+            <Dependent Role="Hashtag_Record_Table">
+              <PropertyRef Name="HashTagID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hashtag_Record_Table_Recipe_Table">
+          <End Role="Recipe_Table" Type="Self.Recipe_Table" Multiplicity="1" />
+          <End Role="Hashtag_Record_Table" Type="Self.Hashtag_Record_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipe_Table">
+              <PropertyRef Name="RecipeID" />
+            </Principal>
+            <Dependent Role="Hashtag_Record_Table">
+              <PropertyRef Name="RecipeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ingredient_Record_Table_Ingredient_Table">
+          <End Role="Ingredient_Table" Type="Self.Ingredient_Table" Multiplicity="1" />
+          <End Role="Ingredient_Record_Table" Type="Self.Ingredient_Record_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingredient_Table">
+              <PropertyRef Name="IngredientID" />
+            </Principal>
+            <Dependent Role="Ingredient_Record_Table">
+              <PropertyRef Name="IngredientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ingredient_Record_Table_Recipe_Table">
+          <End Role="Recipe_Table" Type="Self.Recipe_Table" Multiplicity="1" />
+          <End Role="Ingredient_Record_Table" Type="Self.Ingredient_Record_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipe_Table">
+              <PropertyRef Name="RecipeID" />
+            </Principal>
+            <Dependent Role="Ingredient_Record_Table">
+              <PropertyRef Name="RecipeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ingredient_Table_IngredientCategory_Table">
+          <End Role="IngredientCategory_Table" Type="Self.IngredientCategory_Table" Multiplicity="1" />
+          <End Role="Ingredient_Table" Type="Self.Ingredient_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IngredientCategory_Table">
+              <PropertyRef Name="IngredientCategoryID" />
+            </Principal>
+            <Dependent Role="Ingredient_Table">
+              <PropertyRef Name="IngredientCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Merchandise_Picture_Table_Ingredient_Table1">
+          <End Role="Ingredient_Table" Type="Self.Ingredient_Table" Multiplicity="1" />
+          <End Role="Merchandise_Picture_Table" Type="Self.Merchandise_Picture_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingredient_Table">
+              <PropertyRef Name="IngredientID" />
+            </Principal>
+            <Dependent Role="Merchandise_Picture_Table">
+              <PropertyRef Name="IngredientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Detail_Table_Ingredient_Table">
+          <End Role="Ingredient_Table" Type="Self.Ingredient_Table" Multiplicity="1" />
+          <End Role="Order_Detail_Table" Type="Self.Order_Detail_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingredient_Table">
+              <PropertyRef Name="IngredientID" />
+            </Principal>
+            <Dependent Role="Order_Detail_Table">
+              <PropertyRef Name="IngredientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shopping_Cart_table_Ingredient_Table">
+          <End Role="Ingredient_Table" Type="Self.Ingredient_Table" Multiplicity="1" />
+          <End Role="Shopping_Cart_table" Type="Self.Shopping_Cart_table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingredient_Table">
+              <PropertyRef Name="IngredientID" />
+            </Principal>
+            <Dependent Role="Shopping_Cart_table">
+              <PropertyRef Name="IngredientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LikeComment_Table_Member_Table">
+          <End Role="Member_Table" Type="Self.Member_Table" Multiplicity="1" />
+          <End Role="LikeComment_Table" Type="Self.LikeComment_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member_Table">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="LikeComment_Table">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LikeRecipe_Table_Member_Table">
+          <End Role="Member_Table" Type="Self.Member_Table" Multiplicity="1" />
+          <End Role="LikeRecipe_Table" Type="Self.LikeRecipe_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member_Table">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="LikeRecipe_Table">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LikeRecipe_Table_Recipe_Table">
+          <End Role="Recipe_Table" Type="Self.Recipe_Table" Multiplicity="1" />
+          <End Role="LikeRecipe_Table" Type="Self.LikeRecipe_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipe_Table">
+              <PropertyRef Name="RecipeID" />
+            </Principal>
+            <Dependent Role="LikeRecipe_Table">
+              <PropertyRef Name="RecipeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Member_Table_Member_Rank_Table">
+          <End Role="Member_Rank_Table" Type="Self.Member_Rank_Table" Multiplicity="1" />
+          <End Role="Member_Table" Type="Self.Member_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member_Rank_Table">
+              <PropertyRef Name="RankID" />
+            </Principal>
+            <Dependent Role="Member_Table">
+              <PropertyRef Name="RankID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Table_Member_Table">
+          <End Role="Member_Table" Type="Self.Member_Table" Multiplicity="1" />
+          <End Role="Order_Table" Type="Self.Order_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member_Table">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="Order_Table">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recipe_Table_Member_Table">
+          <End Role="Member_Table" Type="Self.Member_Table" Multiplicity="1" />
+          <End Role="Recipe_Table" Type="Self.Recipe_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member_Table">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="Recipe_Table">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shopping_Cart_table_Member_Table">
+          <End Role="Member_Table" Type="Self.Member_Table" Multiplicity="1" />
+          <End Role="Shopping_Cart_table" Type="Self.Shopping_Cart_table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member_Table">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="Shopping_Cart_table">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Wish_List_Table_Member_Table">
+          <End Role="Member_Table" Type="Self.Member_Table" Multiplicity="1" />
+          <End Role="Wish_List_Table" Type="Self.Wish_List_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member_Table">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="Wish_List_Table">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Detail_Table_Order_Table">
+          <End Role="Order_Table" Type="Self.Order_Table" Multiplicity="1" />
+          <End Role="Order_Detail_Table" Type="Self.Order_Detail_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order_Table">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="Order_Detail_Table">
+              <PropertyRef Name="OrderiD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recipe_Table_RecipeCategory_Table">
+          <End Role="RecipeCategory_Table" Type="Self.RecipeCategory_Table" Multiplicity="1" />
+          <End Role="Recipe_Table" Type="Self.Recipe_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RecipeCategory_Table">
+              <PropertyRef Name="RecipeCategoryID" />
+            </Principal>
+            <Dependent Role="Recipe_Table">
+              <PropertyRef Name="RecipeCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Steps_Table_Recipe_Table">
+          <End Role="Recipe_Table" Type="Self.Recipe_Table" Multiplicity="1" />
+          <End Role="Steps_Table" Type="Self.Steps_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipe_Table">
+              <PropertyRef Name="RecipeID" />
+            </Principal>
+            <Dependent Role="Steps_Table">
+              <PropertyRef Name="RecipeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Wish_List_Table_Recipe_Table">
+          <End Role="Recipe_Table" Type="Self.Recipe_Table" Multiplicity="1" />
+          <End Role="Wish_List_Table" Type="Self.Wish_List_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipe_Table">
+              <PropertyRef Name="RecipeID" />
+            </Principal>
+            <Dependent Role="Wish_List_Table">
+              <PropertyRef Name="RecipeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DeliciousEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accusation_Table" EntityType="Self.Accusation_Table" />
+          <EntitySet Name="AccuseContent_Table" EntityType="Self.AccuseContent_Table" />
+          <EntitySet Name="Admin_Table" EntityType="Self.Admin_Table" />
+          <EntitySet Name="Authority_Table" EntityType="Self.Authority_Table" />
+          <EntitySet Name="Collection_Table" EntityType="Self.Collection_Table" />
+          <EntitySet Name="CollectionFolder_Table" EntityType="Self.CollectionFolder_Table" />
+          <EntitySet Name="CommentSection_Table" EntityType="Self.CommentSection_Table" />
+          <EntitySet Name="Feedback_Category_Table" EntityType="Self.Feedback_Category_Table" />
+          <EntitySet Name="Feedback_Progress_Table" EntityType="Self.Feedback_Progress_Table" />
+          <EntitySet Name="Feedback_Table" EntityType="Self.Feedback_Table" />
+          <EntitySet Name="Hashtag_Record_Table" EntityType="Self.Hashtag_Record_Table" />
+          <EntitySet Name="Hashtag_Table" EntityType="Self.Hashtag_Table" />
+          <EntitySet Name="Ingredient_Record_Table" EntityType="Self.Ingredient_Record_Table" />
+          <EntitySet Name="Ingredient_Table" EntityType="Self.Ingredient_Table" />
+          <EntitySet Name="IngredientCategory_Table" EntityType="Self.IngredientCategory_Table" />
+          <EntitySet Name="LikeComment_Table" EntityType="Self.LikeComment_Table" />
+          <EntitySet Name="LikeRecipe_Table" EntityType="Self.LikeRecipe_Table" />
+          <EntitySet Name="Member_Rank_Table" EntityType="Self.Member_Rank_Table" />
+          <EntitySet Name="Member_Table" EntityType="Self.Member_Table" />
+          <EntitySet Name="Merchandise_Picture_Table" EntityType="Self.Merchandise_Picture_Table" />
+          <EntitySet Name="Order_Detail_Table" EntityType="Self.Order_Detail_Table" />
+          <EntitySet Name="Order_Table" EntityType="Self.Order_Table" />
+          <EntitySet Name="Recipe_Table" EntityType="Self.Recipe_Table" />
+          <EntitySet Name="RecipeCategory_Table" EntityType="Self.RecipeCategory_Table" />
+          <EntitySet Name="Shopping_Cart_table" EntityType="Self.Shopping_Cart_table" />
+          <EntitySet Name="Steps_Table" EntityType="Self.Steps_Table" />
+          <EntitySet Name="Wish_List_Table" EntityType="Self.Wish_List_Table" />
+          <AssociationSet Name="FK_Accusation_Table_AccuseContent_Table" Association="Self.FK_Accusation_Table_AccuseContent_Table">
+            <End Role="AccuseContent_Table" EntitySet="AccuseContent_Table" />
+            <End Role="Accusation_Table" EntitySet="Accusation_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accusation_Table_Member_Table" Association="Self.FK_Accusation_Table_Member_Table">
+            <End Role="Member_Table" EntitySet="Member_Table" />
+            <End Role="Accusation_Table" EntitySet="Accusation_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Member_Table_Authority_Table" Association="Self.FK_Member_Table_Authority_Table">
+            <End Role="Authority_Table" EntitySet="Authority_Table" />
+            <End Role="Member_Table" EntitySet="Member_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Member_Table_Authority_Table1" Association="Self.FK_Member_Table_Authority_Table1">
+            <End Role="Authority_Table" EntitySet="Authority_Table" />
+            <End Role="Member_Table" EntitySet="Member_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Collection_Table_CollectionFolder_Table" Association="Self.FK_Collection_Table_CollectionFolder_Table">
+            <End Role="CollectionFolder_Table" EntitySet="CollectionFolder_Table" />
+            <End Role="Collection_Table" EntitySet="Collection_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Collection_Table_Recipe_Table" Association="Self.FK_Collection_Table_Recipe_Table">
+            <End Role="Recipe_Table" EntitySet="Recipe_Table" />
+            <End Role="Collection_Table" EntitySet="Collection_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CollectionFolder_Table_Member_Table" Association="Self.FK_CollectionFolder_Table_Member_Table">
+            <End Role="Member_Table" EntitySet="Member_Table" />
+            <End Role="CollectionFolder_Table" EntitySet="CollectionFolder_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommentSection_Table_Member_Table" Association="Self.FK_CommentSection_Table_Member_Table">
+            <End Role="Member_Table" EntitySet="Member_Table" />
+            <End Role="CommentSection_Table" EntitySet="CommentSection_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommentSection_Table_Recipe_Table" Association="Self.FK_CommentSection_Table_Recipe_Table">
+            <End Role="Recipe_Table" EntitySet="Recipe_Table" />
+            <End Role="CommentSection_Table" EntitySet="CommentSection_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LikeComment_Table_CommentSection_Table" Association="Self.FK_LikeComment_Table_CommentSection_Table">
+            <End Role="CommentSection_Table" EntitySet="CommentSection_Table" />
+            <End Role="LikeComment_Table" EntitySet="LikeComment_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Feedback_Table_Feedback_Category_Table1" Association="Self.FK_Feedback_Table_Feedback_Category_Table1">
+            <End Role="Feedback_Category_Table" EntitySet="Feedback_Category_Table" />
+            <End Role="Feedback_Table" EntitySet="Feedback_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Feedback_Table_Feedback_Progress_Table" Association="Self.FK_Feedback_Table_Feedback_Progress_Table">
+            <End Role="Feedback_Progress_Table" EntitySet="Feedback_Progress_Table" />
+            <End Role="Feedback_Table" EntitySet="Feedback_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Feedback_Table_Member_Table" Association="Self.FK_Feedback_Table_Member_Table">
+            <End Role="Member_Table" EntitySet="Member_Table" />
+            <End Role="Feedback_Table" EntitySet="Feedback_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hashtag_Record_Table_Hashtag_Table" Association="Self.FK_Hashtag_Record_Table_Hashtag_Table">
+            <End Role="Hashtag_Table" EntitySet="Hashtag_Table" />
+            <End Role="Hashtag_Record_Table" EntitySet="Hashtag_Record_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hashtag_Record_Table_Recipe_Table" Association="Self.FK_Hashtag_Record_Table_Recipe_Table">
+            <End Role="Recipe_Table" EntitySet="Recipe_Table" />
+            <End Role="Hashtag_Record_Table" EntitySet="Hashtag_Record_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ingredient_Record_Table_Ingredient_Table" Association="Self.FK_Ingredient_Record_Table_Ingredient_Table">
+            <End Role="Ingredient_Table" EntitySet="Ingredient_Table" />
+            <End Role="Ingredient_Record_Table" EntitySet="Ingredient_Record_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ingredient_Record_Table_Recipe_Table" Association="Self.FK_Ingredient_Record_Table_Recipe_Table">
+            <End Role="Recipe_Table" EntitySet="Recipe_Table" />
+            <End Role="Ingredient_Record_Table" EntitySet="Ingredient_Record_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ingredient_Table_IngredientCategory_Table" Association="Self.FK_Ingredient_Table_IngredientCategory_Table">
+            <End Role="IngredientCategory_Table" EntitySet="IngredientCategory_Table" />
+            <End Role="Ingredient_Table" EntitySet="Ingredient_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Merchandise_Picture_Table_Ingredient_Table1" Association="Self.FK_Merchandise_Picture_Table_Ingredient_Table1">
+            <End Role="Ingredient_Table" EntitySet="Ingredient_Table" />
+            <End Role="Merchandise_Picture_Table" EntitySet="Merchandise_Picture_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Detail_Table_Ingredient_Table" Association="Self.FK_Order_Detail_Table_Ingredient_Table">
+            <End Role="Ingredient_Table" EntitySet="Ingredient_Table" />
+            <End Role="Order_Detail_Table" EntitySet="Order_Detail_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shopping_Cart_table_Ingredient_Table" Association="Self.FK_Shopping_Cart_table_Ingredient_Table">
+            <End Role="Ingredient_Table" EntitySet="Ingredient_Table" />
+            <End Role="Shopping_Cart_table" EntitySet="Shopping_Cart_table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LikeComment_Table_Member_Table" Association="Self.FK_LikeComment_Table_Member_Table">
+            <End Role="Member_Table" EntitySet="Member_Table" />
+            <End Role="LikeComment_Table" EntitySet="LikeComment_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LikeRecipe_Table_Member_Table" Association="Self.FK_LikeRecipe_Table_Member_Table">
+            <End Role="Member_Table" EntitySet="Member_Table" />
+            <End Role="LikeRecipe_Table" EntitySet="LikeRecipe_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LikeRecipe_Table_Recipe_Table" Association="Self.FK_LikeRecipe_Table_Recipe_Table">
+            <End Role="Recipe_Table" EntitySet="Recipe_Table" />
+            <End Role="LikeRecipe_Table" EntitySet="LikeRecipe_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Member_Table_Member_Rank_Table" Association="Self.FK_Member_Table_Member_Rank_Table">
+            <End Role="Member_Rank_Table" EntitySet="Member_Rank_Table" />
+            <End Role="Member_Table" EntitySet="Member_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Table_Member_Table" Association="Self.FK_Order_Table_Member_Table">
+            <End Role="Member_Table" EntitySet="Member_Table" />
+            <End Role="Order_Table" EntitySet="Order_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recipe_Table_Member_Table" Association="Self.FK_Recipe_Table_Member_Table">
+            <End Role="Member_Table" EntitySet="Member_Table" />
+            <End Role="Recipe_Table" EntitySet="Recipe_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shopping_Cart_table_Member_Table" Association="Self.FK_Shopping_Cart_table_Member_Table">
+            <End Role="Member_Table" EntitySet="Member_Table" />
+            <End Role="Shopping_Cart_table" EntitySet="Shopping_Cart_table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Wish_List_Table_Member_Table" Association="Self.FK_Wish_List_Table_Member_Table">
+            <End Role="Member_Table" EntitySet="Member_Table" />
+            <End Role="Wish_List_Table" EntitySet="Wish_List_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Detail_Table_Order_Table" Association="Self.FK_Order_Detail_Table_Order_Table">
+            <End Role="Order_Table" EntitySet="Order_Table" />
+            <End Role="Order_Detail_Table" EntitySet="Order_Detail_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recipe_Table_RecipeCategory_Table" Association="Self.FK_Recipe_Table_RecipeCategory_Table">
+            <End Role="RecipeCategory_Table" EntitySet="RecipeCategory_Table" />
+            <End Role="Recipe_Table" EntitySet="Recipe_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Steps_Table_Recipe_Table" Association="Self.FK_Steps_Table_Recipe_Table">
+            <End Role="Recipe_Table" EntitySet="Recipe_Table" />
+            <End Role="Steps_Table" EntitySet="Steps_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Wish_List_Table_Recipe_Table" Association="Self.FK_Wish_List_Table_Recipe_Table">
+            <End Role="Recipe_Table" EntitySet="Recipe_Table" />
+            <End Role="Wish_List_Table" EntitySet="Wish_List_Table" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DeliciousModelStoreContainer" CdmEntityContainer="DeliciousEntities">
+          <EntitySetMapping Name="Accusation_Table">
+            <EntityTypeMapping TypeName="DeliciousModel.Accusation_Table">
+              <MappingFragment StoreEntitySet="Accusation_Table">
+                <ScalarProperty Name="AccusationRightID" ColumnName="AccusationRightID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="AccuseID" ColumnName="AccuseID" />
+                <ScalarProperty Name="AccusedAvatar" ColumnName="AccusedAvatar" />
+                <ScalarProperty Name="AccusedID" ColumnName="AccusedID" />
+                <ScalarProperty Name="ProgressID" ColumnName="ProgressID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccuseContent_Table">
+            <EntityTypeMapping TypeName="DeliciousModel.AccuseContent_Table">
+              <MappingFragment StoreEntitySet="AccuseContent_Table">
+                <ScalarProperty Name="AccuseID" ColumnName="AccuseID" />
+                <ScalarProperty Name="Accusation" ColumnName="Accusation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admin_Table">
+            <EntityTypeMapping TypeName="DeliciousModel.Admin_Table">
+              <MappingFragment StoreEntitySet="Admin_Table">
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="AdminName" ColumnName="AdminName" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="AdminAuthority" ColumnName="AdminAuthority" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Authority_Table">
+            <EntityTypeMapping TypeName="DeliciousModel.Authority_Table">
+              <MappingFragment StoreEntitySet="Authority_Table">
+                <ScalarProperty Name="AuthorityID" ColumnName="AuthorityID" />
+                <ScalarProperty Name="Authority" ColumnName="Authority" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Collection_Table">
+            <EntityTypeMapping TypeName="DeliciousModel.Collection_Table">
+              <MappingFragment StoreEntitySet="Collection_Table">
+                <ScalarProperty Name="CollectionID" ColumnName="CollectionID" />
+                <ScalarProperty Name="CollectionFolderID" ColumnName="CollectionFolderID" />
+                <ScalarProperty Name="ReicipeID" ColumnName="ReicipeID" />
+                <ScalarProperty Name="Datetime" ColumnName="Datetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CollectionFolder_Table">
+            <EntityTypeMapping TypeName="DeliciousModel.CollectionFolder_Table">
+              <MappingFragment StoreEntitySet="CollectionFolder_Table">
+                <ScalarProperty Name="CollectionFolderID" ColumnName="CollectionFolderID" />
+                <ScalarProperty Name="CollectionFolder" ColumnName="CollectionFolder" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CommentSection_Table">
+            <EntityTypeMapping TypeName="DeliciousModel.CommentSection_Table">
+              <MappingFragment StoreEntitySet="CommentSection_Table">
+                <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+                <ScalarProperty Name="RecipeID" ColumnName="RecipeID" />
+                <ScalarProperty Name="CommentFloor" ColumnName="CommentFloor" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="Video" ColumnName="Video" />
+                <ScalarProperty Name="PostTime" ColumnName="PostTime" />
+                <ScalarProperty Name="DisVisible" ColumnName="DisVisible" />
+                <ScalarProperty Name="DeleteOrNot" ColumnName="DeleteOrNot" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Feedback_Category_Table">
+            <EntityTypeMapping TypeName="DeliciousModel.Feedback_Category_Table">
+              <MappingFragment StoreEntitySet="Feedback_Category_Table">
+                <ScalarProperty Name="FeedbackCategoryID" ColumnName="FeedbackCategoryID" />
+                <ScalarProperty Name="FeedbackCategory" ColumnName="FeedbackCategory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Feedback_Progress_Table">
+            <EntityTypeMapping TypeName="DeliciousModel.Feedback_Progress_Table">
+              <MappingFragment StoreEntitySet="Feedback_Progress_Table">
+                <ScalarProperty Name="ProgressID" ColumnName="ProgressID" />
+                <ScalarProperty Name="ProgressContent" ColumnName="ProgressContent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Feedback_Table">
+            <EntityTypeMapping TypeName="DeliciousModel.Feedback_Table">
+              <MappingFragment StoreEntitySet="Feedback_Table">
+                <ScalarProperty Name="FeedbackID" ColumnName="FeedbackID" />
+                <ScalarProperty Name="FeedbackCategoryID" ColumnName="FeedbackCategoryID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="Contents" ColumnName="Contents" />
+                <ScalarProperty Name="ProgressID" ColumnName="ProgressID" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="FeedbackDate" ColumnName="FeedbackDate" />
+                <ScalarProperty Name="FeedbackContent" ColumnName="FeedbackContent" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hashtag_Record_Table">
+            <EntityTypeMapping TypeName="DeliciousModel.Hashtag_Record_Table">
+              <MappingFragment StoreEntitySet="Hashtag_Record_Table">
+                <ScalarProperty Name="HashTagFolderID" ColumnName="HashTagFolderID" />
+                <ScalarProperty Name="HashTagID" ColumnName="HashTagID" />
+                <ScalarProperty Name="RecipeID" ColumnName="RecipeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hashtag_Table">
+            <EntityTypeMapping TypeName="DeliciousModel.Hashtag_Table">
+              <MappingFragment StoreEntitySet="Hashtag_Table">
+                <ScalarProperty Name="HashtagID" ColumnName="HashtagID" />
+                <ScalarProperty Name="Hasgtag" ColumnName="Hasgtag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ingredient_Record_Table">
+            <EntityTypeMapping TypeName="DeliciousModel.Ingredient_Record_Table">
+              <MappingFragment StoreEntitySet="Ingredient_Record_Table">
+                <ScalarProperty Name="IngredientRecordID" ColumnName="IngredientRecordID" />
+                <ScalarProperty Name="IngredientID" ColumnName="IngredientID" />
+                <ScalarProperty Name="RecipeID" ColumnName="RecipeID" />
+                <ScalarProperty Name="Unt" ColumnName="Unt" />
+                <ScalarProperty Name="IngredientAmountForUse" ColumnName="IngredientAmountForUse" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ingredient_Table">
+            <EntityTypeMapping TypeName="DeliciousModel.Ingredient_Table">
+              <MappingFragment StoreEntitySet="Ingredient_Table">
+                <ScalarProperty Name="IngredientID" ColumnName="IngredientID" />
+                <ScalarProperty Name="Ingredient" ColumnName="Ingredient" />
+                <ScalarProperty Name="IngredientCategoryID" ColumnName="IngredientCategoryID" />
+                <ScalarProperty Name="IngredientUnit" ColumnName="IngredientUnit" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="AmountInStore" ColumnName="AmountInStore" />
+                <ScalarProperty Name="MerchandiseDescription" ColumnName="MerchandiseDescription" />
+                <ScalarProperty Name="InStoreOrNot" ColumnName="InStoreOrNot" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IngredientCategory_Table">
+            <EntityTypeMapping TypeName="DeliciousModel.IngredientCategory_Table">
+              <MappingFragment StoreEntitySet="IngredientCategory_Table">
+                <ScalarProperty Name="IngredientCategoryID" ColumnName="IngredientCategoryID" />
+                <ScalarProperty Name="IngredientCategory" ColumnName="IngredientCategory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LikeComment_Table">
+            <EntityTypeMapping TypeName="DeliciousModel.LikeComment_Table">
+              <MappingFragment StoreEntitySet="LikeComment_Table">
+                <ScalarProperty Name="CommentLikedID" ColumnName="CommentLikedID" />
+                <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LikeRecipe_Table">
+            <EntityTypeMapping TypeName="DeliciousModel.LikeRecipe_Table">
+              <MappingFragment StoreEntitySet="LikeRecipe_Table">
+                <ScalarProperty Name="RecipeLikedID" ColumnName="RecipeLikedID" />
+                <ScalarProperty Name="RecipeID" ColumnName="RecipeID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Member_Rank_Table">
+            <EntityTypeMapping TypeName="DeliciousModel.Member_Rank_Table">
+              <MappingFragment StoreEntitySet="Member_Rank_Table">
+                <ScalarProperty Name="RankID" ColumnName="RankID" />
+                <ScalarProperty Name="RankName" ColumnName="RankName" />
+                <ScalarProperty Name="RankScore" ColumnName="RankScore" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Member_Table">
+            <EntityTypeMapping TypeName="DeliciousModel.Member_Table">
+              <MappingFragment StoreEntitySet="Member_Table">
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+                <ScalarProperty Name="MemberName" ColumnName="MemberName" />
+                <ScalarProperty Name="CellNumber" ColumnName="CellNumber" />
+                <ScalarProperty Name="CellConfirm" ColumnName="CellConfirm" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirm" ColumnName="EmailConfirm" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Info" ColumnName="Info" />
+                <ScalarProperty Name="ConfirmedOrNot_email" ColumnName="ConfirmedOrNot_email" />
+                <ScalarProperty Name="ConfirmedOrNot_phone" ColumnName="ConfirmedOrNot_phone" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="RegisterTime" ColumnName="RegisterTime" />
+                <ScalarProperty Name="PersonalRankScore" ColumnName="PersonalRankScore" />
+                <ScalarProperty Name="RankID" ColumnName="RankID" />
+                <ScalarProperty Name="AuthorityID" ColumnName="AuthorityID" />
+                <ScalarProperty Name="Figure" ColumnName="Figure" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Merchandise_Picture_Table">
+            <EntityTypeMapping TypeName="DeliciousModel.Merchandise_Picture_Table">
+              <MappingFragment StoreEntitySet="Merchandise_Picture_Table">
+                <ScalarProperty Name="MerchandisePicID" ColumnName="MerchandisePicID" />
+                <ScalarProperty Name="IngredientID" ColumnName="IngredientID" />
+                <ScalarProperty Name="MerchandisePicture" ColumnName="MerchandisePicture" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order_Detail_Table">
+            <EntityTypeMapping TypeName="DeliciousModel.Order_Detail_Table">
+              <MappingFragment StoreEntitySet="Order_Detail_Table">
+                <ScalarProperty Name="Order_DetailID" ColumnName="Order_DetailID" />
+                <ScalarProperty Name="OrderiD" ColumnName="OrderiD" />
+                <ScalarProperty Name="IngredientID" ColumnName="IngredientID" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="InCartQuantity" ColumnName="InCartQuantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order_Table">
+            <EntityTypeMapping TypeName="DeliciousModel.Order_Table">
+              <MappingFragment StoreEntitySet="Order_Table">
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="DeliveryCounty" ColumnName="DeliveryCounty" />
+                <ScalarProperty Name="DeliveryDistrict" ColumnName="DeliveryDistrict" />
+                <ScalarProperty Name="DeliveryAddress" ColumnName="DeliveryAddress" />
+                <ScalarProperty Name="PayMethod" ColumnName="PayMethod" />
+                <ScalarProperty Name="DeliveredDate" ColumnName="DeliveredDate" />
+                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+                <ScalarProperty Name="RecieveMethod" ColumnName="RecieveMethod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Recipe_Table">
+            <EntityTypeMapping TypeName="DeliciousModel.Recipe_Table">
+              <MappingFragment StoreEntitySet="Recipe_Table">
+                <ScalarProperty Name="RecipeID" ColumnName="RecipeID" />
+                <ScalarProperty Name="PostTime" ColumnName="PostTime" />
+                <ScalarProperty Name="RecipeCategoryID" ColumnName="RecipeCategoryID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="RecipeName" ColumnName="RecipeName" />
+                <ScalarProperty Name="RecipeDescription" ColumnName="RecipeDescription" />
+                <ScalarProperty Name="ForHowMany" ColumnName="ForHowMany" />
+                <ScalarProperty Name="TimeNeed" ColumnName="TimeNeed" />
+                <ScalarProperty Name="ShareLink" ColumnName="ShareLink" />
+                <ScalarProperty Name="Views" ColumnName="Views" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="Video" ColumnName="Video" />
+                <ScalarProperty Name="DisVisible" ColumnName="DisVisible" />
+                <ScalarProperty Name="DeleteOrNot" ColumnName="DeleteOrNot" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecipeCategory_Table">
+            <EntityTypeMapping TypeName="DeliciousModel.RecipeCategory_Table">
+              <MappingFragment StoreEntitySet="RecipeCategory_Table">
+                <ScalarProperty Name="RecipeCategoryID" ColumnName="RecipeCategoryID" />
+                <ScalarProperty Name="RecipeCategory" ColumnName="RecipeCategory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shopping_Cart_table">
+            <EntityTypeMapping TypeName="DeliciousModel.Shopping_Cart_table">
+              <MappingFragment StoreEntitySet="Shopping_Cart_table">
+                <ScalarProperty Name="CartID" ColumnName="CartID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="IngredientID" ColumnName="IngredientID" />
+                <ScalarProperty Name="InCartQuantity" ColumnName="InCartQuantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Steps_Table">
+            <EntityTypeMapping TypeName="DeliciousModel.Steps_Table">
+              <MappingFragment StoreEntitySet="Steps_Table">
+                <ScalarProperty Name="StepsID" ColumnName="StepsID" />
+                <ScalarProperty Name="RecipeID" ColumnName="RecipeID" />
+                <ScalarProperty Name="StepsNumber" ColumnName="StepsNumber" />
+                <ScalarProperty Name="Steps" ColumnName="Steps" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wish_List_Table">
+            <EntityTypeMapping TypeName="DeliciousModel.Wish_List_Table">
+              <MappingFragment StoreEntitySet="Wish_List_Table">
+                <ScalarProperty Name="WishListID" ColumnName="WishListID" />
+                <ScalarProperty Name="RecipeID" ColumnName="RecipeID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="BoughtOrNot" ColumnName="BoughtOrNot" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

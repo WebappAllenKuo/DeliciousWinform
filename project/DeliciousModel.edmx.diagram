@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="aade0702e52544ba93e41c2b52abf3e2" Name="Diagram1">
+        <EntityTypeShape EntityType="DeliciousModel.Accusation_Table" Width="1.5" PointX="5.25" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeliciousModel.AccuseContent_Table" Width="1.5" PointX="3" PointY="24" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeliciousModel.Admin_Table" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeliciousModel.Authority_Table" Width="1.5" PointX="0.75" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeliciousModel.Collection_Table" Width="1.5" PointX="7.5" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeliciousModel.CollectionFolder_Table" Width="1.5" PointX="5.25" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeliciousModel.CommentSection_Table" Width="1.5" PointX="8.25" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeliciousModel.Feedback_Category_Table" Width="1.5" PointX="3" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeliciousModel.Feedback_Progress_Table" Width="1.5" PointX="3" PointY="29.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeliciousModel.Feedback_Table" Width="1.5" PointX="5.25" PointY="23.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeliciousModel.Hashtag_Record_Table" Width="1.5" PointX="16.5" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeliciousModel.Hashtag_Table" Width="1.5" PointX="14.25" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeliciousModel.Ingredient_Record_Table" Width="1.5" PointX="16.5" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeliciousModel.Ingredient_Table" Width="1.5" PointX="3" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeliciousModel.IngredientCategory_Table" Width="1.5" PointX="0.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeliciousModel.LikeComment_Table" Width="1.5" PointX="13.5" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeliciousModel.LikeRecipe_Table" Width="1.5" PointX="8.25" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeliciousModel.Member_Rank_Table" Width="1.5" PointX="0.75" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeliciousModel.Member_Table" Width="1.5" PointX="3" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeliciousModel.Merchandise_Picture_Table" Width="1.5" PointX="5.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeliciousModel.Order_Detail_Table" Width="1.5" PointX="7.5" PointY="33.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeliciousModel.Order_Table" Width="1.5" PointX="5.25" PointY="33.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeliciousModel.Recipe_Table" Width="1.5" PointX="11.25" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeliciousModel.RecipeCategory_Table" Width="1.5" PointX="9" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeliciousModel.Shopping_Cart_table" Width="1.5" PointX="5.25" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeliciousModel.Steps_Table" Width="1.5" PointX="13.5" PointY="24.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeliciousModel.Wish_List_Table" Width="1.5" PointX="16.5" PointY="21.625" IsExpanded="true" />
+        <AssociationConnector Association="DeliciousModel.FK_Accusation_Table_AccuseContent_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="DeliciousModel.FK_Accusation_Table_Member_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="DeliciousModel.FK_Member_Table_Authority_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="DeliciousModel.FK_Member_Table_Authority_Table1" ManuallyRouted="false" />
+        <AssociationConnector Association="DeliciousModel.FK_Collection_Table_CollectionFolder_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="DeliciousModel.FK_Collection_Table_Recipe_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="DeliciousModel.FK_CollectionFolder_Table_Member_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="DeliciousModel.FK_CommentSection_Table_Member_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="DeliciousModel.FK_CommentSection_Table_Recipe_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="DeliciousModel.FK_LikeComment_Table_CommentSection_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="DeliciousModel.FK_Feedback_Table_Feedback_Category_Table1" ManuallyRouted="false" />
+        <AssociationConnector Association="DeliciousModel.FK_Feedback_Table_Feedback_Progress_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="DeliciousModel.FK_Feedback_Table_Member_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="DeliciousModel.FK_Hashtag_Record_Table_Hashtag_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="DeliciousModel.FK_Hashtag_Record_Table_Recipe_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="DeliciousModel.FK_Ingredient_Record_Table_Ingredient_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="DeliciousModel.FK_Ingredient_Record_Table_Recipe_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="DeliciousModel.FK_Ingredient_Table_IngredientCategory_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="DeliciousModel.FK_Merchandise_Picture_Table_Ingredient_Table1" ManuallyRouted="false" />
+        <AssociationConnector Association="DeliciousModel.FK_Order_Detail_Table_Ingredient_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="DeliciousModel.FK_Shopping_Cart_table_Ingredient_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="DeliciousModel.FK_LikeComment_Table_Member_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="DeliciousModel.FK_LikeRecipe_Table_Member_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="DeliciousModel.FK_LikeRecipe_Table_Recipe_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="DeliciousModel.FK_Member_Table_Member_Rank_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="DeliciousModel.FK_Order_Table_Member_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="DeliciousModel.FK_Recipe_Table_Member_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="DeliciousModel.FK_Shopping_Cart_table_Member_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="DeliciousModel.FK_Wish_List_Table_Member_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="DeliciousModel.FK_Order_Detail_Table_Order_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="DeliciousModel.FK_Recipe_Table_RecipeCategory_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="DeliciousModel.FK_Steps_Table_Recipe_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="DeliciousModel.FK_Wish_List_Table_Recipe_Table" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

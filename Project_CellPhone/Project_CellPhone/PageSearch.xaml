@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:prodViewModel="clr-namespace:Project_CellPhone.ViewModels"
+             x:Class="Project_CellPhone.PageSearch">
+    <ContentPage.BindingContext>
+        <prodViewModel:CBindingViewModel></prodViewModel:CBindingViewModel>
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+        <Frame BackgroundColor="LightBlue" Padding="24" CornerRadius="0">
+            <Label Text="食譜查詢" HorizontalTextAlignment="Center" TextColor="Black" FontSize="36"/>
+        </Frame>
+        <Label Text="輸入名子條件"
+                VerticalOptions="Start" 
+                HorizontalOptions="Start" />
+        <StackLayout Orientation="Horizontal">
+            <Entry   
+                HorizontalOptions="FillAndExpand" 
+                x:Name="input">
+            </Entry>
+            <ImageButton    Source="query.png"
+                            VerticalOptions="FillAndExpand"
+                HorizontalOptions="End" Clicked="IBSearch_Clicked">
+            </ImageButton>
+        </StackLayout>
+        <ScrollView>
+        <StackLayout   >
+                <Grid x:Name="m_grid" >
+                 
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+    
+</ContentPage>
